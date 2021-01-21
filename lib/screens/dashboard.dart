@@ -1,4 +1,5 @@
 import 'package:bytebank/components/BalanceCard.dart';
+import 'package:bytebank/models/balance.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
@@ -10,7 +11,7 @@ class Dashboard extends StatelessWidget {
       ),
       body: Align(
         alignment: Alignment.topCenter,
-          child: BalanceCard()),
+          child: BalanceCard(Balance(110.0))),
     );
   }
 }
