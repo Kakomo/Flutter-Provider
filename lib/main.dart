@@ -1,3 +1,4 @@
+import 'package:bytebank/screens/dashboard.dart';
 import 'package:bytebank/screens/transaction_list/transaction_list_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class ByteBankApp extends StatelessWidget {
           textTheme: ButtonTextTheme.primary,
         ),
       ),
-      home: TransactionListScreen(),
+      home: Dashboard(),
     );
   }
 }
