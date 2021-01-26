@@ -1,9 +1,14 @@
+import 'package:bytebank/models/balance.dart';
 import 'package:bytebank/screens/dashboard.dart';
 import 'package:bytebank/screens/transaction_list/transaction_list_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ByteBankApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => Balance(0),
+    child: ByteBankApp(),
+  ));
 }
 
 class ByteBankApp extends StatelessWidget {

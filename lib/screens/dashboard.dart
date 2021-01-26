@@ -10,8 +10,10 @@ class Dashboard extends StatelessWidget {
         title: Text('Bytebank'),
       ),
       body: Align(
-        alignment: Alignment.topCenter,
-          child: BalanceCard(Balance(110.0))),
+          alignment: Alignment.topCenter,
+          child: BalanceCard(
+            Balance(110.0),
+          )),
     );
   }
 }
