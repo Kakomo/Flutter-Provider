@@ -1,7 +1,9 @@
 
 import 'package:bytebank/components/bytebank_textfield.dart';
+import 'package:bytebank/models/balance.dart';
 import 'package:bytebank/models/transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TransactionForm extends StatelessWidget {
   final TextEditingController _nameController = TextEditingController();
@@ -41,6 +43,7 @@ class TransactionForm extends StatelessWidget {
 
     final transaction = Transaction(name, amount);
 //          debugPrint("$transaction");
+    Provider.of<Balance>(context,listen: false).subtract(amount);
     Navigator.pop(context, transaction);
   }
 }
