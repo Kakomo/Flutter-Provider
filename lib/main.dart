@@ -1,4 +1,5 @@
 import 'package:bytebank/models/balance.dart';
+import 'package:bytebank/models/transactions.dart';
 import 'package:bytebank/screens/dashboard.dart';
 import 'package:bytebank/screens/transaction_list/transaction_list_screen.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,9 @@ void main() {
     providers: [
       ChangeNotifierProvider(
         create: (context) => Balance(100),
+      ),
+      ChangeNotifierProvider(
+        create: (context) => Transactions(),
       ),
     ],
     child: ByteBankApp(),
