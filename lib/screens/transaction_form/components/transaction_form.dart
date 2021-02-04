@@ -37,18 +37,23 @@ class TransactionForm extends StatelessWidget {
   _popTransaction(BuildContext context) {
     final name = _nameController.text;
     final amount = double.tryParse(_amountController.text);
-    if (name == null || amount == null) {
-      return;
+    final validation = _validateTransaction(context, name, amount);
+    if (validation) {
+      final transaction = Transaction(name, amount);
+//          debugPrint("$transaction");
+      _updateState(context, transaction, amount);
+      Navigator.pop(context);
+      }
     }
 
-    final transaction = Transaction(name, amount);
-//          debugPrint("$transaction");
-    _updateState(context, transaction, amount);
-    Navigator.pop(context);
-  }
-
-  _updateState(context, transaction,amount) {
+  _updateState(context, transaction, amount) {
     Provider.of<Transactions>(context, listen: false).put(transaction);
     Provider.of<Balance>(context, listen: false).subtract(amount);
+  }
+
+  _validateTransaction(context,name,amount){
+    final _validateTextField = name != null && amount != null;
+    final _enoughBalance = amount <= Provider.of<Balance>(context, listen: false).value;
+    return _validateTextField && _enoughBalance;
   }
 }
